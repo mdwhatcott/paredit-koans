@@ -20,6 +20,10 @@
   #_(it "Wrap Curly: ⇧⌘{" (should= #{:a} :a))
   #_(it "Wrap List: ⇧⌘(" (should= (print "") ""))
 
+  #_(it "Cycle Collection Type: ⇧⌘c [must assign in keymap]"
+      (should= [{1 2} #{3 4} [5 6]]
+               [#{1 2} [3 4] {5 6}]))
+
   #_(it "Kill: ⌥⌘k"
       (should= [:a :b :c :g]
                [:a :b :c :d :e :f :g]))
@@ -65,9 +69,5 @@
   #_(it "Barf Backwards: ⌃⌘k"
       (should= [1 2 3 4 [5]]
                [[1 2 3 4 5]]))
-
-  #_(it "Cycle Collection Type: ⇧⌘c [must assign in keymap]"
-      (should= [{1 2} #{3 4} [5 6]]
-               [#{1 2} [3 4] {5 6}]))
 
   )
