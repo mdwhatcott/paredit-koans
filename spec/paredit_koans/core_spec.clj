@@ -11,7 +11,10 @@
 (describe "Structural Editing with Paredit"
   (it "Move Form Up/Down: ⇧⌘↑ [and] ⇧⌘↓"
     (should= [:a :b :c [:d :e] :f]
-             [:b [:e :d] :c :a :f]))
+             [:b [:e :d] :c :a :f])
+
+    #_(should= {:a 1 :b 2}                                  ; place cursor at beginning of a map key; movement commands will include key/value combo!
+               {:b 2 :a 1}))                                ; This also works in 'let' bindings (place cursor at beginning of name, value will go along for the ride!)
 
   #_(it "Raise: ⌘'" (should= :d [:a :b :c :d :e :f :g]))
 
